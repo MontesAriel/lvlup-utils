@@ -12,9 +12,10 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@src': resolve(__dirname, '/src'),
+            '@src': resolve(__dirname, 'src'),
+            '@types': resolve(__dirname, 'src/types'),
             // '@utils': resolve(__dirname, '/src/utils')
         }
     },
-    plugins: [dts({outDir:'dist'}), viteConfigPaths()]
+    plugins: [dts({outDir:'dist', exclude:['**/*.test.ts', 'test/']}), viteConfigPaths()]
 })
